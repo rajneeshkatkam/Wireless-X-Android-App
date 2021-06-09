@@ -1,0 +1,135 @@
+\hypertarget{Wireless-X__server_8py}{}\doxysection{Wireless-\/\+X\+\_\+server.py File Reference}
+\label{Wireless-X__server_8py}\index{Wireless-\/X\_server.py@{Wireless-\/X\_server.py}}
+
+
+This includes the code for the server-\/side of Wireless-\/X.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{Wireless-X__server_8py_a89ff6223b623131684a93295f32bc976}{Wireless-\/\+X\+\_\+server.\+bind\+\_\+sockets}} ()
+\begin{DoxyCompactList}\small\item\em This function establishes two sockets for receiving camera frames as well as mouse and keyboard actions. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{Wireless-X__server_8py_a6db0464af01126b82f9ff27839b4d236}{Wireless-\/\+X\+\_\+server.\+mouse\+\_\+keyboard\+\_\+connections}} ()
+\begin{DoxyCompactList}\small\item\em This function decodes the received mouse and keyboard actions and acts accordingly. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{Wireless-X__server_8py_aa577d8e17a9ed9e9765dfad47310f8e4}{Wireless-\/\+X\+\_\+server.\+camera\+\_\+stream\+\_\+connections}} ()
+\begin{DoxyCompactList}\small\item\em This function is responsible for handling the camera frames. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{Wireless-X__server_8py_a79901b301ca92aaf0cf102d9eb534a91}{Wireless-\/\+X\+\_\+server.\+listening\+\_\+connections}} ()
+\begin{DoxyCompactList}\small\item\em This function is responsible for listening to connections. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_ab168597dce547df306f8cef48714f256}\label{Wireless-X__server_8py_ab168597dce547df306f8cef48714f256}} 
+\mbox{\hyperlink{Wireless-X__server_8py_ab168597dce547df306f8cef48714f256}{Wireless-\/\+X\+\_\+server.\+virtual\+Camera}} = subprocess.\+run(\mbox{[}\char`\"{}sudo\char`\"{}, \char`\"{}modprobe\char`\"{}, \char`\"{}v4l2loopback\char`\"{}, \char`\"{}devices=1\char`\"{}, \char`\"{}video\+\_\+nr=20\char`\"{}, \char`\"{}card\+\_\+label=\textquotesingle{}Wireless-\/X Camera\textquotesingle{}\char`\"{}, \char`\"{}exclusive\+\_\+caps=1\char`\"{}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Creates a virtual camera on the laptop/\+PC. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_af68defefb623d24f4e1976c3a061bf98}\label{Wireless-X__server_8py_af68defefb623d24f4e1976c3a061bf98}} 
+\mbox{\hyperlink{Wireless-X__server_8py_af68defefb623d24f4e1976c3a061bf98}{Wireless-\/\+X\+\_\+server.\+width}}
+\begin{DoxyCompactList}\small\item\em Stores the width of the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a5fbc4cec3d85ed72e2b15df06cc732fc}\label{Wireless-X__server_8py_a5fbc4cec3d85ed72e2b15df06cc732fc}} 
+\mbox{\hyperlink{Wireless-X__server_8py_a5fbc4cec3d85ed72e2b15df06cc732fc}{Wireless-\/\+X\+\_\+server.\+height}}
+\begin{DoxyCompactList}\small\item\em Stores the height of the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_aaebd0084b5c865b4d6ee83691622e178}\label{Wireless-X__server_8py_aaebd0084b5c865b4d6ee83691622e178}} 
+\mbox{\hyperlink{Wireless-X__server_8py_aaebd0084b5c865b4d6ee83691622e178}{Wireless-\/\+X\+\_\+server.\+curr\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em Stores the x-\/coordinate of the current mouse location. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a764bc7fd7cda5a9c302abbd1c0b9ce9d}\label{Wireless-X__server_8py_a764bc7fd7cda5a9c302abbd1c0b9ce9d}} 
+\mbox{\hyperlink{Wireless-X__server_8py_a764bc7fd7cda5a9c302abbd1c0b9ce9d}{Wireless-\/\+X\+\_\+server.\+curr\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em Stores the y-\/coordinate of the current mouse location. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a1450e29f8b058a690ac172cb516bd558}\label{Wireless-X__server_8py_a1450e29f8b058a690ac172cb516bd558}} 
+def \mbox{\hyperlink{Wireless-X__server_8py_a1450e29f8b058a690ac172cb516bd558}{Wireless-\/\+X\+\_\+server.\+remote\+\_\+x}} = curr\+\_\+x/2
+\begin{DoxyCompactList}\small\item\em Stores the mid of x-\/coordinate of current mouse location. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_adeae735ccc3dbb8abd29b300dbc830eb}\label{Wireless-X__server_8py_adeae735ccc3dbb8abd29b300dbc830eb}} 
+def \mbox{\hyperlink{Wireless-X__server_8py_adeae735ccc3dbb8abd29b300dbc830eb}{Wireless-\/\+X\+\_\+server.\+remote\+\_\+y}} = curr\+\_\+y/2
+\begin{DoxyCompactList}\small\item\em Stores the mid of y-\/coordinate of current mouse location. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a91f42afd61bbcbd6f88f4f9d0ac3cb45}\label{Wireless-X__server_8py_a91f42afd61bbcbd6f88f4f9d0ac3cb45}} 
+string \mbox{\hyperlink{Wireless-X__server_8py_a91f42afd61bbcbd6f88f4f9d0ac3cb45}{Wireless-\/\+X\+\_\+server.\+s}} = \textquotesingle{}\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Socket used for receiving keyboard and mouse related actions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a45dcde7bcdcb4693f7800b933f376ee0}\label{Wireless-X__server_8py_a45dcde7bcdcb4693f7800b933f376ee0}} 
+string \mbox{\hyperlink{Wireless-X__server_8py_a45dcde7bcdcb4693f7800b933f376ee0}{Wireless-\/\+X\+\_\+server.\+camera\+Socket}} = \textquotesingle{}\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Socket used for receiving the camera frames of user\textquotesingle{}s smartphone. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_afa870e05abcd643a6414cb70bbe57cc6}\label{Wireless-X__server_8py_afa870e05abcd643a6414cb70bbe57cc6}} 
+int \mbox{\hyperlink{Wireless-X__server_8py_afa870e05abcd643a6414cb70bbe57cc6}{Wireless-\/\+X\+\_\+server.\+img\+\_\+width}} = 720
+\begin{DoxyCompactList}\small\item\em Width of the camera frame. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a8eebf5dc6b9c928115225a1e3588c3c5}\label{Wireless-X__server_8py_a8eebf5dc6b9c928115225a1e3588c3c5}} 
+int \mbox{\hyperlink{Wireless-X__server_8py_a8eebf5dc6b9c928115225a1e3588c3c5}{Wireless-\/\+X\+\_\+server.\+img\+\_\+height}} = 480
+\begin{DoxyCompactList}\small\item\em Height of the camera frame. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a13f596ef10f1688c79547c0bc99ea75f}\label{Wireless-X__server_8py_a13f596ef10f1688c79547c0bc99ea75f}} 
+\mbox{\hyperlink{Wireless-X__server_8py_a13f596ef10f1688c79547c0bc99ea75f}{Wireless-\/\+X\+\_\+server.\+camera}} = pyfakewebcam.\+Fake\+Webcam(\textquotesingle{}/dev/video20\textquotesingle{}, img\+\_\+width, img\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Virtual webcam device. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a33b4715674007489c6b6756bc8ef4b70}\label{Wireless-X__server_8py_a33b4715674007489c6b6756bc8ef4b70}} 
+bool \mbox{\hyperlink{Wireless-X__server_8py_a33b4715674007489c6b6756bc8ef4b70}{Wireless-\/\+X\+\_\+server.\+thread\+\_\+run}} = True
+\begin{DoxyCompactList}\small\item\em The camera and keyboard-\/mouse sockets receive user requests until this variable is set to \textquotesingle{}True\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a58e2d0036cb3910e655408e179feec10}\label{Wireless-X__server_8py_a58e2d0036cb3910e655408e179feec10}} 
+\mbox{\hyperlink{Wireless-X__server_8py_a58e2d0036cb3910e655408e179feec10}{Wireless-\/\+X\+\_\+server.\+keyboard}} = Keyboard\+Controller()
+\begin{DoxyCompactList}\small\item\em Initializing the Keyboard\+Controller object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a5b66540b63fab3022f0c750bac663345}\label{Wireless-X__server_8py_a5b66540b63fab3022f0c750bac663345}} 
+\mbox{\hyperlink{Wireless-X__server_8py_a5b66540b63fab3022f0c750bac663345}{Wireless-\/\+X\+\_\+server.\+mouse}} = Mouse\+Controller()
+\begin{DoxyCompactList}\small\item\em Initializing the Mouse\+Controller object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a3b73746def437cc51ef5946752dd09ad}\label{Wireless-X__server_8py_a3b73746def437cc51ef5946752dd09ad}} 
+int \mbox{\hyperlink{Wireless-X__server_8py_a3b73746def437cc51ef5946752dd09ad}{Wireless-\/\+X\+\_\+server.\+mouse\+\_\+speed}} = 2
+\begin{DoxyCompactList}\small\item\em Speed of mouse movement. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a84a42e06c60f25a66338c51f4fcf5f99}\label{Wireless-X__server_8py_a84a42e06c60f25a66338c51f4fcf5f99}} 
+int \mbox{\hyperlink{Wireless-X__server_8py_a84a42e06c60f25a66338c51f4fcf5f99}{Wireless-\/\+X\+\_\+server.\+screenshot\+\_\+count}} = 0
+\begin{DoxyCompactList}\small\item\em Screenshot counter to keep track of screenshots. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{Wireless-X__server_8py_a2bfd6439764b53b8df612bbc0335a07c}\label{Wireless-X__server_8py_a2bfd6439764b53b8df612bbc0335a07c}} 
+dictionary \mbox{\hyperlink{Wireless-X__server_8py_a2bfd6439764b53b8df612bbc0335a07c}{Wireless-\/\+X\+\_\+server.\+special\+\_\+key\+\_\+android\+\_\+dictionary}} = \{\char`\"{}F1\char`\"{}\+: \char`\"{}F1\char`\"{}, \char`\"{}F2\char`\"{}\+:\char`\"{}F2\char`\"{}, \char`\"{}F3\char`\"{}\+:\char`\"{}F3\char`\"{}, \char`\"{}F4\char`\"{}\+:\char`\"{}F4\char`\"{}, \char`\"{}F5\char`\"{}\+:\char`\"{}F5\char`\"{}, \char`\"{}F6\char`\"{}\+:\char`\"{}F6\char`\"{}, \char`\"{}F7\char`\"{}\+:\char`\"{}F7\char`\"{}, \char`\"{}F8\char`\"{}\+:\char`\"{}F8\char`\"{}, \char`\"{}F9\char`\"{}\+:\char`\"{}F9\char`\"{}, \char`\"{}F10\char`\"{}\+:\char`\"{}F10\char`\"{}, \char`\"{}F11\char`\"{}\+:\char`\"{}F11\char`\"{}, \char`\"{}F12\char`\"{}\+:\char`\"{}F12\char`\"{}, \char`\"{}Alt\char`\"{}\+:\char`\"{}ALT\char`\"{}, \char`\"{}Backspace\char`\"{}\+:\char`\"{}BACKSPACE\char`\"{}, \char`\"{}Caps\textbackslash{}n\+Lock\char`\"{}\+:\char`\"{}CAPS\+\_\+\+LOCK\char`\"{}, \char`\"{}Ctrl\char`\"{}\+:\char`\"{}CONTROL\char`\"{}, \char`\"{}Delete\char`\"{}\+:\char`\"{}DELETE\char`\"{}, \char`\"{}↓\char`\"{}\+:\char`\"{}DOWN\+\_\+\+ARROW\char`\"{}, \char`\"{}End\char`\"{}\+:\char`\"{}END\char`\"{}, \char`\"{}Esc\char`\"{}\+:\char`\"{}ESCAPE\char`\"{}, \char`\"{}Home\char`\"{}\+:\char`\"{}HOME\char`\"{}, \char`\"{}←\char`\"{}\+:\char`\"{}LEFT\+\_\+\+ARROW\char`\"{}, \char`\"{}META\char`\"{}\+:\char`\"{}META\char`\"{}, \char`\"{}Page Down\char`\"{}\+:\char`\"{}PAGE\+\_\+\+DOWN\char`\"{}, \char`\"{}Page Up\char`\"{}\+:\char`\"{}PAGE\+\_\+\+UP\char`\"{}, \char`\"{}Enter\char`\"{}\+:\char`\"{}RETURN\char`\"{}, \char`\"{}→\char`\"{}\+:\char`\"{}RIGHT\+\_\+\+ARROW\char`\"{}, \char`\"{}Shift\char`\"{}\+:\char`\"{}SHIFT\char`\"{}, \char`\"{}Space\char`\"{}\+:\char`\"{}SPACE\char`\"{}, \char`\"{}↑\char`\"{}\+:\char`\"{}UP\+\_\+\+ARROW\char`\"{}, \char`\"{}Tab\char`\"{}\+:\char`\"{}Tab\char`\"{}\}
+\begin{DoxyCompactList}\small\item\em Maps the keys in keyboard layout to the actual keyboard keys. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This includes the code for the server-\/side of Wireless-\/X. 
+
+The server running on laptop or PC is responsible for receiving the actions performed by user on the Wireless-\/X android app as well as receiving the camera frames of the user\textquotesingle{}s smartphone (if the user has turned) on the camera). Such actions are transmitted to the server in encoded form, the server decodes the received message and instructs the laptop or PC to perform the action described in that message. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Wireless-X__server_8py_a89ff6223b623131684a93295f32bc976}\label{Wireless-X__server_8py_a89ff6223b623131684a93295f32bc976}} 
+\index{Wireless-\/X\_server.py@{Wireless-\/X\_server.py}!bind\_sockets@{bind\_sockets}}
+\index{bind\_sockets@{bind\_sockets}!Wireless-\/X\_server.py@{Wireless-\/X\_server.py}}
+\doxysubsubsection{\texorpdfstring{bind\_sockets()}{bind\_sockets()}}
+{\footnotesize\ttfamily def Wireless-\/X\+\_\+server.\+bind\+\_\+sockets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function establishes two sockets for receiving camera frames as well as mouse and keyboard actions. 
+
+\begin{DoxyVerb}This function creates a camera socket which is responsible for receiving the camera frames, and it also
+creates another socket which is responsible for receiving the keyboard and mouse frames.\end{DoxyVerb}
+ \mbox{\Hypertarget{Wireless-X__server_8py_aa577d8e17a9ed9e9765dfad47310f8e4}\label{Wireless-X__server_8py_aa577d8e17a9ed9e9765dfad47310f8e4}} 
+\index{Wireless-\/X\_server.py@{Wireless-\/X\_server.py}!camera\_stream\_connections@{camera\_stream\_connections}}
+\index{camera\_stream\_connections@{camera\_stream\_connections}!Wireless-\/X\_server.py@{Wireless-\/X\_server.py}}
+\doxysubsubsection{\texorpdfstring{camera\_stream\_connections()}{camera\_stream\_connections()}}
+{\footnotesize\ttfamily def Wireless-\/X\+\_\+server.\+camera\+\_\+stream\+\_\+connections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is responsible for handling the camera frames. 
+
+\begin{DoxyVerb}This function uses the 'OpenCV' library to decode and resize the camera frame. Then, this frame is scheduled on 
+the virtual webcam device created using 'pyfakewebcam' library.\end{DoxyVerb}
+ \mbox{\Hypertarget{Wireless-X__server_8py_a79901b301ca92aaf0cf102d9eb534a91}\label{Wireless-X__server_8py_a79901b301ca92aaf0cf102d9eb534a91}} 
+\index{Wireless-\/X\_server.py@{Wireless-\/X\_server.py}!listening\_connections@{listening\_connections}}
+\index{listening\_connections@{listening\_connections}!Wireless-\/X\_server.py@{Wireless-\/X\_server.py}}
+\doxysubsubsection{\texorpdfstring{listening\_connections()}{listening\_connections()}}
+{\footnotesize\ttfamily def Wireless-\/X\+\_\+server.\+listening\+\_\+connections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function is responsible for listening to connections. 
+
+\begin{DoxyVerb}This function creates two threads corresponding to the two sockets, one for handling mouse and keyboard events 
+and the other for handling camera frames received from the user's smartphone.\end{DoxyVerb}
+ \mbox{\Hypertarget{Wireless-X__server_8py_a6db0464af01126b82f9ff27839b4d236}\label{Wireless-X__server_8py_a6db0464af01126b82f9ff27839b4d236}} 
+\index{Wireless-\/X\_server.py@{Wireless-\/X\_server.py}!mouse\_keyboard\_connections@{mouse\_keyboard\_connections}}
+\index{mouse\_keyboard\_connections@{mouse\_keyboard\_connections}!Wireless-\/X\_server.py@{Wireless-\/X\_server.py}}
+\doxysubsubsection{\texorpdfstring{mouse\_keyboard\_connections()}{mouse\_keyboard\_connections()}}
+{\footnotesize\ttfamily def Wireless-\/X\+\_\+server.\+mouse\+\_\+keyboard\+\_\+connections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function decodes the received mouse and keyboard actions and acts accordingly. 
+
+\begin{DoxyVerb}This function checks if the message received corresponds to a mouse action (left-click, scroll, etc.) or a keyboard action 
+(such as keypress). It then instructs the laptop to perform these actions, using the 'autopy' and 'pynput' libraries. Some special 
+characters in keyboard are not supported by 'autopy' library, so the actions corresponding to these special characters are performed
+by the 'pynput' library, other key actions are handled by the 'autopy' library. In case of mouse, the 'autopy' library was not that 
+efficient, so we used the 'pynput' library.\end{DoxyVerb}
+ 

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Wireless-X</string>
+    <string name="received" >received</string>
+    <string name="camera_switch">Camera Switch</string>
+    <string name="camera_on_off">Camera On/Off</string>
+    <string name="J" >J</string>
+    <string name="A" >A</string>
+    <string name="R" >R</string>
+    <string name="MouseOnOff">Mouse On</string>
+    <string name="wireless_x_mode_camera">Wireless-X Mode: Camera</string>
+    <string name="wireless_x_mode_mouse">Wireless-X Mode: Mouse</string>
+    <string name="wireless_x_mode_keyboard">Wireless-X Mode: Keyboard</string>
+
+</resources>

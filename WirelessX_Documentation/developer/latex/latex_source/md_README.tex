@@ -1,0 +1,94 @@
+\hypertarget{md_README_autotoc_md1}{}\doxysection{All in one android app that wirelessly controls keyboard, mouse of Laptop/\+Desktop and also acts as a Webcam device.}\label{md_README_autotoc_md1}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{Git repository link}\label{md_README_autotoc_md2}
+\href{https://git.cse.iitb.ac.in/rajneeshkatkam/PARA-Site_WirelessX}{\texttt{ https\+://git.\+cse.\+iitb.\+ac.\+in/rajneeshkatkam/\+PARA-\/\+Site\+\_\+\+WirelessX}}\hypertarget{md_README_autotoc_md3}{}\doxysection{Team Members}\label{md_README_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item Aditya Pradhan (Roll number\+: 203059006)
+\item Ajinkya Jumbad (Roll number\+: 203050032)
+\item Prashant Ravi (Roll number\+: 203050082)
+\item Rajneesh Katkam (Roll number\+: 203050086)
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md4}{}\doxysection{Contributions}\label{md_README_autotoc_md4}
+
+\begin{DoxyEnumerate}
+\item Aditya Pradhan worked on python server and keyboard layout
+\item Ajinkya Jumbad worked on mouse layout and the networking part of client-\/side
+\item Prashant Ravi worked on python server and the networking part of client-\/side
+\item Rajneesh Katkam worked on camera layout and the networking part of client-\/side
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md5}{}\doxysection{Introduction}\label{md_README_autotoc_md5}
+The total package of Wireless-\/X consist of an android app being backed by a Python server. Using this app, we have tried to eliminate the need to buy a wireless mouse, wireless keyboard and a dedicated web-\/cam. Instead, using this app, user can use his/her android phone’s screen as his mouse, a custom build keyboard layout as his wireless keyboard and his/her smartphone’s camera as web-\/cam. A Python server running on target laptop will capture these commands and emulate the effects on laptop.\hypertarget{md_README_autotoc_md6}{}\doxysection{Motivation}\label{md_README_autotoc_md6}
+People come from different economical background and buying a wireless mouse, or keyboard or web-\/cam may not be easy for everyone. Even if they can manage to buy one, it is not efficient to do so when they have already invested on a smartphone. One thing, that is very common now-\/a-\/days across all section of society is having a smartphone, either a basic or a high-\/end one doesn’t matter. The required hardware to emulate a wireless keyboard, mouse or external web-\/cam is already present in a smartphone, and we just need to tailor it to make it usable for a common end-\/user.\hypertarget{md_README_autotoc_md7}{}\doxysection{Working}\label{md_README_autotoc_md7}
+The Wireless-\/X app has two components\+: a python server running on laptop/\+PC and a client running on the android app. The user acts as a client where he/she sends the mouse and keyboard actions to be performed. If the user has turned on the camera, the camera frames are also sent to the python server. There are two sockets, one socket manages the mouse and keyboard actions, then the python program uses autopy and pynput libraries to translate these requests into the actual actions. The other socket is responsible for handling the camera frames, the python program uses the pyfakewebcam library to set up a camera virtual device on the laptop/\+PC and uses the Open\+CV library to decode the camera frames coming from the client-\/side.\hypertarget{md_README_autotoc_md8}{}\doxysection{Installation Setup}\label{md_README_autotoc_md8}
+\begin{DoxyVerb}1. Make sure that you are in the WirelessX_Source_Code/WirelessX-Python-Server directory (where install.sh file is present)
+
+2. Grant the permission to execute install.sh installation script using the following command:
+        $ sudo chmod a+x install.sh
+
+3. Execute the install.sh script to install the necessary dependencies using the following command:
+        $ sudo ./install.sh
+\end{DoxyVerb}
+ \hypertarget{md_README_autotoc_md9}{}\doxysection{Running the application (\+Strictly follow the below order to run it successfully)}\label{md_README_autotoc_md9}
+NOTE\+: Before proceeding make sure that the Laptop/\+Desktop and the android phone are connected to same Wi\+Fi/\+Hotspot.
+
+
+\begin{DoxyEnumerate}
+\item Navigate to the Wireless\+X\+\_\+\+Source\+\_\+\+Code/\+Wireless\+X-\/\+Python-\/\+Server directory and run the Wireless-\/X server using the following command\+: \$ python3 \mbox{\hyperlink{Wireless-X__server_8py}{Wireless-\/\+X\+\_\+server.\+py}}
+\item Enter your linux system password (the same password you enter while executing a command as \char`\"{}sudo\char`\"{}). This is required in order to set up the virtual webcam device. ~\newline
+
+\item Application Installation and Setup on Android Smartphone\+:
+
+a. Install the Wireless-\/X apk (you can copy the apk from the folder Wireless\+X\+\_\+\+Source to your smartphone) on Android smartphone and give required permissions.
+
+b. Now, enter the IP address displayed in the terminal (on which the server is running) into the android application.
+
+c. Click on Test Button to test the connection of smartphone with the server. If failed, Recheck if you have entered correct IP address of Laptop/ Desktop (on which the server is running).
+
+d. After successful connection, you would be able to control mouse, keyboard of laptop and use smartphones camera as webcam for the laptop/\+Desktop.
+
+e. Now you would be able to use this virtual webcam device on Google Chrome for video conferencing. (Tested on Google Chrome for Microsoft Teams and Google Meet).
+
+f. (Optional) Inorder to test if camera frames are received to the Laptop/ Desktop, use the below command while (Note\+: camera option should be turned on in the Wireless-\/X apk on Android)\+: \$ ffplay /dev/video20
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md10}{}\doxysubsection{$\ast$\+Extra (\+Inorder to remove v42loopback devices, use below command)\+:}\label{md_README_autotoc_md10}
+\begin{DoxyVerb}        $ sudo modprobe -r v4l2loopback
+\end{DoxyVerb}
+\hypertarget{md_README_autotoc_md11}{}\doxysection{Steps for Debugging (\+If python code doesn\textquotesingle{}t run after above commands)\+:}\label{md_README_autotoc_md11}
+\begin{DoxyVerb}1. Check if your virtual device is created
+
+    $ ls /dev | grep -P '^video\d+$'
+    OR
+    $ v4l2-ctl --list-devices    # TO List the virtual devices in detail
+
+        Output should look somewhat like this:
+
+            Wireless-X Camera (platform:v4l2loopback-000):
+                /dev/video20
+
+            Webcam C170: Webcam C170 (usb-0000:00:1a.0-1.2):
+                /dev/video0
+                /dev/video1
+
+2. Inorder to test if virtual device is working:
+    Copy the sample code from  https://github.com/jremmons/pyfakewebcam page and save it as python file and run it.
+
+        $ python3 demo.py
+
+    If everything worked correctly, no error should be displayed and terminal should be blank.
+    Now, Open another terminal and test if virtual device output is being display by entering below command:
+
+        $ ffplay /dev/video20
+
+    Note: ffplay
+\end{DoxyVerb}
+ \hypertarget{md_README_autotoc_md12}{}\doxysection{References}\label{md_README_autotoc_md12}
+Open\+CV Reference\+: \begin{DoxyVerb}https://cmsdk.com/java/android-opencv-tcp-video-streaming.html
+\end{DoxyVerb}
+
+
+v4l2loopback References\+: \begin{DoxyVerb}https://github.com/jremmons/pyfakewebcam
+https://github.com/jremmons/pyfakewebcam/issues/5
+https://github.com/umlaeute/v4l2loopback#DKMS
+\end{DoxyVerb}
+
+
+Android Reference\+: \begin{DoxyVerb}https://stackoverflow.com/questions/23024831/android-shared-preferences-for-creating-one-time-activity-example
+\end{DoxyVerb}
+ 

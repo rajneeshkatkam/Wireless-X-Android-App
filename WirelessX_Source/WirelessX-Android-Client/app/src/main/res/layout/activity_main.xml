@@ -1,0 +1,1270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:opencv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+
+    <!-- First screen after starting app -->
+    <!-- Testing server connection layout-->
+
+    <LinearLayout
+        android:id="@+id/ip_address_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#111111"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_wirelessx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WIRELESS-X"
+            android:layout_weight="0.1"
+            android:textColor="#00FF00"
+            android:textSize="60sp"
+            android:shadowColor="#000"
+            android:shadowRadius="30"
+            android:gravity="center"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/test_textView"
+                android:gravity="center"
+                android:textColor="#00FF00"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:layout_marginHorizontal="20dp"
+                android:padding="10dp"
+                android:background="@drawable/ip_edit_text"
+                android:id="@+id/ip_address_editText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:textColor="#00FF00"
+                android:inputType="phone"
+                android:digits=".0123456789"
+                android:textColorHint="#FF0000"
+                android:hint="Enter the IP of the PC / Laptop and Press Test Button"/>
+
+            <Button
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/ip_edit_text"
+                android:id="@+id/test_Button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#00FF00"
+                android:layout_weight="0.8"
+                android:text="Test"
+                android:onClick="test_IP"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:background="@drawable/ip_edit_text"
+            android:id="@+id/enter_wireless_x_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:textColor="#00FF00"
+            android:text="Enter Wireless-X"
+            android:visibility="invisible"
+            android:layout_marginTop="40dp"
+            android:enabled="false"
+            android:clickable="false"
+            android:onClick="enter_wireless_x"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:textColor="#00FF00"
+                android:text="!! Welcome to world where wired meets Wireless !!"
+                android:layout_weight="0.1"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+    <!-- Upper Bar which gives the mode in which wirelessX is and also radio buttons as switches-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="#1A1A1A"
+        android:gravity="center">
+
+
+        <org.opencv.android.JavaCameraView
+            android:layout_width="400px"
+            android:layout_height="300px"
+            android:visibility="visible"
+            android:layout_weight="0.1"
+            android:id="@+id/opencvView"
+            opencv:show_fps="false" />
+
+        <TextView
+            android:id="@+id/textview_first"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:text="@string/wireless_x_mode_mouse"
+            android:textSize="20sp"
+            android:textColor="#00FF00"
+            android:gravity="center"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal"
+            android:gravity="right">
+
+            <!-- Keyboard Mouse Radio Button-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginHorizontal="5dp">
+
+                <RadioButton
+                    android:id="@+id/mouse_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="mouse_on_off"/>
+
+                <TextView
+                    android:id="@+id/mouse_radio_text"
+                    android:text="keyboard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#00FF00"/>
+
+            </LinearLayout>
+
+
+            <!-- Camera On/Off Radio Button -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="5dp">
+
+                <RadioButton
+                    android:id="@+id/camera_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="camera_on_off"/>
+
+                <TextView
+                    android:id="@+id/camera_radio_text"
+                    android:text="camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#00FF00"/>
+
+            </LinearLayout>
+
+
+            <!-- Camera Front/Back Radio Switch -->
+
+            <LinearLayout
+                android:id="@+id/camera_switch_radio_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginHorizontal="5dp">
+
+                <RadioButton
+                    android:id="@+id/camera_switch_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:onClick="camera_switch"/>
+
+                <TextView
+                    android:id="@+id/camera_switch_back_radio_text"
+                    android:text="switch camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#00FF00"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+    <!-- Green border of 2dp-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#00FF00"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+    <!-- Mouse Layout Interface which includes buttons and track pad area-->
+
+    <!-- android:visibility="gone" -->
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/mouse_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="#000000">
+
+
+        <LinearLayout
+            android:layout_width="62dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.025"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_weight="0.1"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:background="@drawable/mouse_custom_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:textColor="#00FF00"
+                android:onClick="keyPress"
+                android:text="SCROLL DOWN"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:background="@drawable/mouse_custom_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="mouse_click"
+                android:textColor="#00FF00"
+                android:text="LEFT \nCLICK"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:background="#000"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="100dp"/>
+
+            <!-- Green border of 2dp-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#00FF00"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/mouse_space"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:background="#000"
+                android:layout_height="wrap_content"/>
+
+            <!-- Green border of 2dp-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#00FF00"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="100dp"/>
+
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="62dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.025"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_weight="0.1"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:background="@drawable/mouse_custom_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#00FF00"
+                android:layout_weight="0.5"
+                android:onClick="keyPress"
+                android:text="SCROLL \nUP"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:background="@drawable/mouse_custom_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#00FF00"
+                android:onClick="mouse_click"
+                android:layout_weight="1"
+                android:text="RIGHT CLICK"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+    <!-- Keyboard Layout Interface which includes all the keys UI elements related to keyboard-->
+
+    <LinearLayout
+        android:background="#1A1A1A"
+        android:visibility="gone"
+        android:id="@+id/keyboard_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="2dp"
+            android:paddingBottom="1dp"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.09"
+                android:layout_height="match_parent"
+                android:text="Print\nScreen"
+                android:onClick="keyPress"/>
+
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="Page Up"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="Page Down"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="Home"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="End"
+                android:onClick="keyPress"/>
+
+
+
+
+        </LinearLayout>
+
+        <!-- esc - F1 - F12  - Pause/Break -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="1dp"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="Esc"
+                android:onClick="keyPress"/>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:layout_weight="0.1"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F1"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F2"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F3"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F4"
+                android:onClick="keyPress"/>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F5"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F6"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F7"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F8"
+                android:onClick="keyPress"/>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F9"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F10"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F11"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="F12"
+                android:onClick="keyPress"/>
+
+
+
+        </LinearLayout>
+
+        <!-- ~ - Numbers - Backspace - minus -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="1dp"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/KeyButton"
+                android:id="@+id/wave_key"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="`"
+                android:onClick="keyPress"/>
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/one_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="1"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/two_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="2"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/three_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="3"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/four_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="4"
+                android:onClick="keyPress"/>
+
+            <Button
+                android:id="@+id/five_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="5"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/six_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="6"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/seven_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="7"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/eight_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="8"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/nine_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="9"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/zero_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/minus_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="-"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/equal_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_weight="0.1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="="
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Backspace"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:text="Delete"
+                android:onClick="keyPress"/>
+
+
+        </LinearLayout>
+
+
+        <!--Tab -  p - + -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="1dp"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:text="Tab"
+                android:onClick="keyPress"/>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"/>
+
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="Q"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="W"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="E"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="R"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="T"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="Y"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="U"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="I"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="O"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="P"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/left_box_brac_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="\["
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/right_box_brac_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="\]"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/back_slash_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="\\"
+                android:onClick="keyPress"/>
+
+
+
+        </LinearLayout>
+
+        <!--Caps - l - + -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="1dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/capslock_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:text="Caps\nLock"
+                android:onClick="keyPress"/>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="A"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="S"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="D"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="F"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="G"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="H"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="J"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="K"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="L"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/semicolon_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="\;"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/apostrophe_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="\'"
+                android:onClick="keyPress"/>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Enter"
+                android:onClick="keyPress"/>
+
+        </LinearLayout>
+
+
+        <!-- lshift - rshift - enter-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="1dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/l_shift"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:text="Shift"
+                android:onClick="shiftPress"/>
+
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="Z"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="X"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="C"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="V"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="B"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="N"
+                android:onClick="keyPress"/>
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="M"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/comma_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="\,"
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/period_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="\."
+                android:onClick="keyPress"/>
+            <Button
+                android:id="@+id/forward_slash_key"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="\/"
+                android:onClick="keyPress"/>
+
+
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:text="↑"
+                android:onClick="keyPress"/>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/r_shift"
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:text="Shift"
+                android:onClick="shiftPress"/>
+
+
+
+
+        </LinearLayout>
+
+
+        <!-- lcntl - rcntl - enter -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="1dp"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="Ctrl"
+                android:onClick="keyPress"/>
+
+
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="Cmd"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="Alt"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:text="Space"
+                android:onClick="keyPress"/>
+
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="Alt"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="Ctrl"
+                android:onClick="keyPress"/>
+
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:text="←"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:text="↓"
+                android:onClick="keyPress"/>
+
+            <Button
+                style="@style/KeyButton"
+                android:background="@drawable/custom_button"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:text="→"
+                android:onClick="keyPress"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
