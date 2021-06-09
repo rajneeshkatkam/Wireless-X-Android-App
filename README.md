@@ -11,12 +11,6 @@
     3. Prashant Ravi
     4. Aditya Pradhan
 
-## Contributions
-    1. Aditya Pradhan worked on python server and keyboard layout
-    2. Ajinkya Jumbad worked on mouse layout and the networking part of client-side
-    3. Prashant Ravi worked on python server and the networking part of client-side
-    4. Rajneesh Katkam worked on camera layout and the networking part of client-side
-
 ## Introduction
     The total package of Wireless-X consist of an android app being backed by a Python server. Using this app, we have tried to eliminate the need to buy a wireless mouse, wireless keyboard and a dedicated web-cam. Instead, using this app, user can use his/her android phone’s screen as his mouse, a custom build keyboard layout as his wireless keyboard and his/her smartphone’s camera as web-cam. A Python server running on target laptop will capture these commands and emulate the effects on laptop.
 
